@@ -1,0 +1,36 @@
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!-- Page Header -->
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="todo-heading">
+                    <h1>{{todo.project}}</h1>
+                    <h2 class="subheading">{{todo.title}}</h2>
+                    <span class="meta">Dateline is on {{todo.date}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {{ todo.body|safe }}
+                <hr>
+                <div class="clearfix">
+                    <a class="btn btn-primary float-right" href="{{url_for('edit_todo', todo_id=todo.id)}}">Edit Post</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+{% include "footer.html" %}
